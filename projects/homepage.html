@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+         <title>
+    Homepage and art
+</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <!-- scale to mobile-->
+        <link href="/static/style.css" rel="stylesheet">
+
+
+
+        <!--get bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <!-- src="static/catcontrol.js" -->
+        <script>
+            //javascript controls for the cat animation, basic movement
+            //refrenced some parts Drew Conley's yt guide for cat animation
+
+            //adapted ideas into two d movement
+
+            //debug
+
+
+
+            document.addEventListener("DOMContentLoaded", (e) =>{
+
+            var character = document.querySelector(".character");
+            var main = document.querySelector("#bg");
+            var x=0;
+            var y =0;
+            var speed = 1.2; //unscaled pixels per frame
+            var bgspeed = 1; //scaled pixels per frame
+            var held_directions = [];
+            /*put own implementation of held dir later*/
+            var direction = ""
+            var dir=""
+
+            var bgx=1000;
+            var bgy=1000;
+
+
+            const placeCharacter = () => {
+                var pixelSize = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--pixel-size")); //pixelsize checked ok
+                const held_direction = held_directions[0]; //sets var as first of held
+
+                if (held_direction) {
+
+                if (held_direction == directions.right) {
+                    x+= speed;
+                    dir="R";
+
+                    bgx-= bgspeed;
+
+                }
+                if (held_direction == directions.left) {
+                    x-= speed;
+                    dir="L";
+
+                    bgx+= bgspeed;
+                }
+
+                }
+
+                character.style.transform = `translate3d(${x*pixelSize}px, ${y*pixelSize}px,0)`;
+
+                main.style.backgroundPosition=`${bgx}px ${bgy}px`;
+
+
+
+            }
+
+
+
+
+            function step()
+            {
+            placeCharacter();
+            setstate();
+            window.requestAnimationFrame(()=>{step();}) //around 60fps
+            }
+
+            function setstate()
+            {
+            //dir =  R/L
+            var root = document.querySelector(':root');
+            var hd = held_directions.length;
+
+            if (dir == "R")
+                {
+                    if (hd!=0)
+                    {
+                        root.style.setProperty('--state', 15);
+                    }
+                    else
+                    {
+                        root.style.setProperty('--state', 1);
+                    }
+
+
+                }
+            else if (dir == "L")
+                    {
+                    if (hd!=0)
+                        {
+                        root.style.setProperty('--state', 14);
+                        }
+                    else
+                        {
+                        root.style.setProperty('--state', 0);
+                        }
+                    }
+            else
+                {root.style.setProperty('--state', 0);}
+
+            }
+
+
+
+
+
+            //------------------------------------------------
+                //sets up directions
+            const directions = {
+            left:"left",
+            right:"right",
+            }
+
+            const keys = {
+            37:directions.left,
+            39: directions.right,
+            65: directions.left,
+            68: directions.right,
+            }
+
+            function initalise()
+            {
+            step(); //starts first tick
+
+            document.addEventListener("keydown", (e) => {
+            var dir = keys[e.which]; //check key , sees if supported
+
+            //checks if direction already in array
+            // direction and the index of dir, if it doesnt find then return -1 add to array
+            if (dir && held_directions.indexOf(dir) === -1)
+            {
+                held_directions.unshift(dir); //use last in first considered
+            }
+
+
+            });
+
+
+            document.addEventListener("keyup", (e) => {
+
+            var dir = keys[e.which]; //check key , sees if supported
+
+            //checks if direction already in array
+            // direction and the index of dir, if it doesnt find then return -1 add to array
+            var index = held_directions.indexOf(dir);
+            if (index > -1)
+            {
+                held_directions.splice(index,1); //splices it out
+            }
+
+
+            });
+            }
+            initalise();
+
+
+
+            })
+
+
+
+
+
+        </script>
+
+
+
+
+        <link rel="icon" href="https://raw.githubusercontent.com/Null-Tree/Null-Tree.github.io/refs/heads/main/static/catico.jpg">
+
+
+
+
+        <style>
+
+            $spacer:{
+                16px;
+            }
+
+            :root {
+                --r1: #290C31;
+                --r2: #640E4B;
+                --r3: #C8166F;
+                --r4: #FE1574;
+                --r5: #FF5B6C;
+                --pixel-size: 5; /* scales art */
+                --sprite-size: 32px;
+
+                --state:1;
+                --bgspeed:1;
+
+                --bgurl:url("https://raw.githubusercontent.com/Null-Tree/Null-Tree.github.io/refs/heads/main/static/glow.jpg"); /*config*/
+
+                /*--bgurl:url("https://cdn.discordapp.com/attachments/845923711102222337/1323645295015493671/glowraw.png?ex=6775443e&is=6773f2be&hm=f19babd969352b9d842221e6edfc61412cae86d0283046fd6e3e02bb305e0869&")*/
+            }
+
+
+
+
+            .bgr1 {background-color: #290C31 !important;}
+            .bgr2 {background-color: #640E4B !important;}
+            .bgr3 {background-color: #C8166F !important;}
+            .bgr4 {background-color: #FE1574 !important;}
+            .bgr5 {background-color: #FF5B6C !important;}
+
+
+            .cr1 {color: #290C31 !important;}
+            .cr2 {color: #640E4B !important;}
+            .cr3 {color: #C8166F !important;}
+            .cr4 {color: #FE1574 !important;}
+            .cr5 {color: #FF5B6C !important;}
+
+
+
+            .pixelart{
+            image-rendering:pixelated;
+            }
+
+            /* parts of following are for animation of cat sprite, learnt from Drew Conley's yt vid on the subject*/
+            /*cat sprite sheet not made by me, but it is free use*/
+            .character
+            {
+            overflow:hidden;
+
+
+            width:calc(var(--pixel-size)*var(--sprite-size));
+            height:calc(var(--pixel-size)*var(--sprite-size));
+            position: absolute;
+            bottom:0;
+
+            }
+
+            /* we gonna use steps, basically takes an animation and does it in increments*/
+
+            .characterSS{
+            animation: animate 1s steps(8) infinite;
+            width:calc(var(--pixel-size)*var(--sprite-size) *8);
+            height:calc(var(--pixel-size)*var(--sprite-size) *16);
+            position: absolute;
+            left:0px;
+            top: calc(var(--sprite-size)*var(--pixel-size) * (-1) * var(--state));
+
+            }
+
+            @keyframes animate{
+            from  {
+                transform:translate3d(0px,0,0)
+            }
+            to   {
+                transform:translate3d(-100%,0,0)  /*to right by 100% of image x dimension*/
+            }
+
+            }
+
+
+
+
+            /* top: calc(var(--sprite-size)*var(--pixel-size) * (-1)); */
+
+
+
+
+            .border
+            {
+                color:var(--r1);
+            }
+
+            .navbar
+            {
+                background-color: var(--r1);
+            }
+
+            .nav-link
+            {
+                color: var(--r3) !important;
+            }
+
+            .dropdown-item
+            {
+                color: var(--r3) !important;
+            }
+
+            .navbar-nav > li > .dropdown-menu { background-color: var(--r1); }
+
+            .dropdown-item:hover
+            { background-color: var(--r2) !important; }
+
+            body
+            {
+                height:100%;
+            }
+            main
+            {
+                background-color: #640E4B;
+                background-image:  var( --bgurl );
+                background-size: 400px;
+                background-position: 1000px 1000px;
+                background-repeat: repeat-x repeat-y;
+                min-height: calc(100vh - 40px);
+                height:100%;
+            }
+            /*styling for the tessalation of the background tile*/
+            /*tile art was made by me*/
+
+
+
+            main>div
+            {
+                color:var(--r3);
+            }
+
+            footer
+            {
+                background-color: var(--r1);
+                color:var(--r3);
+                padding:10px
+            }
+
+
+            .textwrap
+            {
+                text-wrap: wrap !important;
+            }
+
+
+
+            .widebox
+            {
+
+
+                padding: 0.75rem;
+                vertical-align: middle !important;
+
+            }
+
+            .bold
+            {
+                font-weight: bold;
+            }
+
+            .wlimited
+            {
+                max-width:1000px !important;
+            }
+
+            #logbox{
+                background: var(--r1);
+            }
+
+
+
+        </style>
+
+
+    </head>
+
+    <body>
+
+        <nav class=" bgr1 navbar navbar-expand-md border border-dark">
+            <div class="container-fluid">
+                <div class = "navbar-brand"><a href="/"><img src="https://raw.githubusercontent.com/Null-Tree/Null-Tree.github.io/refs/heads/main/static/catico.jpg" alt="Catito" width="50" height="50" /></a></div>
+
+
+
+
+                <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar">
+                        <ul class="r3 navbar-nav me-auto mt-2">
+                            <li class="r3 nav-item "><a class=" nav-link" href="/">Home</a></li>
+                            <li class="nav-item"><a class=" nav-link" href="/aboutme">About Me</a></li>
+                            <li class="nav-item"><a class=" nav-link" href="/blog">Blog</a></li>
+
+                            <li class="nav-item"><a class=" nav-link" href="/contact">Contact</a></li>
+
+
+
+                            <li class="nav-item dropdown" class="nav-link">
+                                <a class=" nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Projects
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class=" dropdown-item" href="/projects">Project List</a></li>
+                                    <li><hr class=" dropdown-divider"></li>
+
+                                    <!-- <li><a class=" dropdown-item" href="#">others</a></li> -->
+                                </ul>
+                            </li>
+
+                        </ul>
+                        <ul class="navbar-nav ms-auto mt-2">
+                            <li class="nav-item"><a class="nav-link" href="/">side</a></li>
+                        </ul>
+
+                </div>
+            </div>
+        </nav>
+
+
+        <div id = "main">
+            <main id="bg"> <!----  class="bgr4 textwrap container py-5 text-center"-->
+                
+    <div class = "textwrap container py-5 wlimited">
+        <div class = "bold bgr1 cr3 m-3 widebox border border-dark">
+            Homepage
+        </div>
+
+        <div class = "bgr1 cr3 m-3 article border border-dark">
+            <h3>Assets</h3>
+            If you are just here for the assets:
+            <a href="https://github.com/Null-Tree/Null-Tree.github.io/tree/main/static">Background varients</a>
+            <br><br>
+            The specific cat sprite sheet was not made by me. It can be found free for use on itch.io.<br>
+            Link to artist's page:
+            <br><a href="https://pop-shop-packs.itch.io/cats-pixel-asset-pack">Cats || Pixel Asset Pack by Pop Shop Packs</a>
+        </div>
+
+
+
+        <div class = "bgr1 cr3 m-3 article border border-dark">
+
+            There are three main sections to this home page, the pixel art background, cat sprite, and html formatting. <br>
+            There will be sections for each.<br>
+            This is not a full guide, but provides useful guides and tips. Note that I may or may not be doing things the most efficent way possible, this is just the way I did it.
+
+        </div>
+
+
+        <div class = "bgr1 cr3 m-3 article border border-dark">
+            <h3>Pixel art background</h3>
+            The resources I used are as follows: <br>
+            Pixel art editor: <a href="https://www.pixilart.com/draw#"> Pixilart</a> <br>
+            Adobe Photoshop
+            <br><br>
+            As this is a tessalating pixel art, it is important to give yourself guidelines to see where you need
+            parts of the art to join up<br>
+            <img class= "smallimage" src="https://raw.githubusercontent.com/Null-Tree/Null-Tree.github.io/refs/heads/main/static/projectarticleassets/guidlines.png">
+            <br>
+            Once you have these guidelines up, you can start making simple pixel arts of buildings and layering them.
+            Keeping in mind to match the buildings with the guidelines if they ever intersect with the boundaries of the page.
+            <br>
+            Once you have your buildings, you can create the lit up windows.<br>
+            Make sure to create these lights on a different layer. This will save alot of time later on.
+            <br>
+            Things to keep in mind with lights:<br>
+            <ul>
+                <li>Try to keep them evenly distributed, so that density patterns dont form when the art is tessalated.</li>
+                <li>Avoid putting in too many either, as if theres two many, when we add glow effects later
+                    they may end up forming patterns and lines when the glow effects overlap. As humans are really sensitive to patterns,
+                     it will become really clear if the image is repeated.
+                </li>
+            </ul>
+            If these were not considered, the image may end up looking like this instead, where the repeating pattern is very clear:
+            <img style="max-width:800px;max-height:200px;" src="https://raw.githubusercontent.com/Null-Tree/Null-Tree.github.io/refs/heads/main/static/projectarticleassets/eg.png">
+
+            <br>
+            Now you have finished making the lights, make sure to export the base layer and layer with lights as seperate files.
+            And open them on photoshop.
+            <br>
+            You will want to scale up these files, as otherwise the light effects will be pixelated.
+            If you dont want a higher definition glow effect, and prefer a more pixelated style, you may skip this.<br>
+            To scale up, go into image>image size, and adjust dimensions to your desire.<br>
+            For pixel art make sure to select "Nearest Neighbour (hard edges)" mode, which maintains the crisp edges. Otherwise your pixel art will end up blurry <br>
+            <img style="max-width:800px;max-height:200px;" src="https://raw.githubusercontent.com/Null-Tree/Null-Tree.github.io/refs/heads/main/static/projectarticleassets/psscale.png">
+
+
+
+            <br>
+            <br>
+            Now create a new project in the same dimensions you scaled up to.
+            And move the base and light pictures onto this project in diffrent layers
+            <br>
+            There are some things to keep in mind with moving the light layer.<br>
+            Because the image file of the lights is mostly empty except for the lights themselves, you cannot do
+            Crtl-A then copy, because photoshop cannot handle empty borders, and will automatically crop your selection<br>
+            So aligning may become tricky.<br>
+            Personally I recommend putting placeholder pixels at a pair of opposite corners of the image, and then copying it across.
+            <br>
+            After both base layer and lights layer are on. You are ready to add the glow effects.
+            <br><br>
+            There are many ways to do this, but these are the two guides I followed:
+            <br>
+            <a href="https://www.youtube.com/watch?v=ENCMGabrOcY&t=62s&pp=ygUjaG93IHRvIGFkZCBnbG93IGVmZmVjdCBpbiBwaG90b3Nob3A%3D">Glow effect guide by Benny</a>
+            <a href="https://www.youtube.com/watch?v=3QQxtsZ8_zQ&pp=ygUjaG93IHRvIGFkZCBnbG93IGVmZmVjdCBpbiBwaG90b3Nob3A%3D">Glow guide by Spoon graphics</a>
+            <br>
+            Try avoid Crtl-A then copying layers to duplicate them, as it pastes the new layer in diffrent position. Right click layer and duplicate instead.
+            <br>
+            <br>
+            As you are trying to make a tessalating tile. having glow effects that do not line up may also be ploblemmatic.
+            This does not matter too much for the glow effect that uses gaussian blur, unless you have lights right up agaist the border.
+            For the glow effect using color lookup and a low flow brush, I recommend the below.
+            Split the art into two sections using guides set at quarters.
+            <br>
+            And apply the glow effects seperately.<br>
+            You would want to create two diffrent copies of: base and light layer, and the color look up layer.<br>
+            For the inner section, go ahead and apply the glow effects<br>
+            But prior to applying the same glow effects to the outer lights, you will want to 'transform' the image as below.
+            To make sure each light effect will line up even when tessalated.
+            You will want to translate each quadrant to its opposite quadrant. Eg Top Right -> Bottom left
+            Below are images before and after transformation. Square is there for reference.
+
+            <br>
+
+            <img style="max-width:400px;max-height:400px;" src="https://raw.githubusercontent.com/Null-Tree/Null-Tree.github.io/refs/heads/main/static/projectarticleassets/sqrframe.png">
+            <img style="max-width:400px;max-height:400px;" src="https://raw.githubusercontent.com/Null-Tree/Null-Tree.github.io/refs/heads/main/static/projectarticleassets/afterinvert.png">
+            <br>
+            Now when you add the glow effects for these lights, the glow effect will now line up across borders.
+            Once you add them you will want to do the transformation again this time to the color lookup layer, to revert it to line up with the original image.
+            <img style="max-width:400px;max-height:400px;" src="https://raw.githubusercontent.com/Null-Tree/Null-Tree.github.io/refs/heads/main/static/glow.jpg">
+            <br>
+            If nothing has gone astray, your tessalating tile will have been completed.
+
+        </div>
+        <div class = "bgr1 cr3 m-3 article border border-dark">
+            <h3>Sprite animation</h3>
+            I did the sprite animation in js.<br>
+            Recommend the following guide:<br>
+            <a href="https://www.youtube.com/watch?v=ekI7vjkFrGA">Sprite sheet animation tutorial with HTML and CSS By Drew Conley</a>
+            <br>
+            The specific cat sprite sheet was not made by me. It can be found free for use on itch.io.<br>
+            Link to artist's page:
+            <br><a href="https://pop-shop-packs.itch.io/cats-pixel-asset-pack">Cats || Pixel Asset Pack by Pop Shop Packs</a>
+        </div>
+        <div class = "bgr1 cr3 m-3 article border border-dark">
+            <h3>Html and page hosting</h3>
+            This is the more boring technical stuff.
+            There are many free hosting optinons for static pages.
+            I went with github pages, which was free for anyone with an education account, which only requires one to have
+            a school email and id.
+
+            I created this project using the flask frame work.
+            And used the free
+            <a href="https://github.com/Frozen-Flask/Frozen-Flask">Frozen-Flas project</a>
+            to convert the dynamic frame work to static.
+
+            For formatting I recommend bootstrap.
+        </div>
+    </div>
+
+
+
+
+                    <div class="character">
+
+                        <img class = "characterSS runR pixelart " src = "https://raw.githubusercontent.com/Null-Tree/Null-Tree.github.io/refs/heads/main/static/greysprite.png" alt = "catsprite">
+                        <!--config-->
+
+
+                    </div>
+
+            </main>
+        </div>
+
+
+
+        <footer>
+            footer
+        </footer>
+    </body>
+
+</html>
