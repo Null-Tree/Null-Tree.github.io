@@ -1,6 +1,7 @@
-$spacer:{
+
+/* $spacer:{
     16px;
-}
+} */
 
 :root {
     --r1: #290C31;
@@ -114,15 +115,18 @@ body
 {
     height:100%;
 }
-main
+
+
+main 
 {
     background-color: #640E4B;
     background-image:  var( --bgurl );
     background-size: 400px;
     background-position: 1000px 1000px;
-    background-repeat: repeat-x repeat-y;
+    background-repeat: repeat;   
     min-height: calc(100vh - 40px);
     height:100%;
+    background-attachment: fixed;   /* CONFIG */
 }
 /*styling for the tessalation of the background tile*/
 /*tile art was made by me*/
@@ -155,6 +159,7 @@ footer
 
     padding: 0.75rem;
     vertical-align: middle !important;
+    align-items: center!important;
 
 }
 
@@ -170,6 +175,11 @@ footer
 
 #logbox{
     background: var(--r1);
+}
+
+.article
+{
+    padding: 0.8rem;
 }
 
 .articleicon
@@ -203,17 +213,24 @@ a:hover
     text-decoration: underline !important;
 }
 
-.article
-{
 
-
-    padding: 1.5rem;
-    vertical-align: left !important;
-
-}
 
 .smallimage
 {
     max-width:200px;
     max-height:200px;
+}
+
+.x-align-mid
+{
+    width : 100%;
+    margin:auto;
+}
+
+.centering-grid
+{
+    
+    display: grid;
+    place-content: center;
+
 }
