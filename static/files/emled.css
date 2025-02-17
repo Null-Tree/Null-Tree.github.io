@@ -1,0 +1,236 @@
+
+/* $spacer:{
+    16px;
+} */
+
+:root {
+    --r1: #290C31;
+    --r2: #640E4B;
+    --r3: #C8166F;
+    --r4: #FE1574;
+    --r5: #FF5B6C;
+    --pixel-size: 5; /* scales art */
+    --sprite-size: 32px;
+
+    --state:1;
+    --bgspeed:1;
+
+    --bgurl:url("https://raw.githubusercontent.com/Null-Tree/Null-Tree.github.io/refs/heads/main/static/glow.jpg");
+
+    /*--bgurl:url("https://cdn.discordapp.com/attachments/845923711102222337/1323645295015493671/glowraw.png?ex=6775443e&is=6773f2be&hm=f19babd969352b9d842221e6edfc61412cae86d0283046fd6e3e02bb305e0869&")*/
+}
+
+
+
+
+.bgr1 {background-color: #290C31 !important;}
+.bgr2 {background-color: #640E4B !important;}
+.bgr3 {background-color: #C8166F !important;}
+.bgr4 {background-color: #FE1574 !important;}
+.bgr5 {background-color: #FF5B6C !important;}
+
+
+.cr1 {color: #290C31 !important;}
+.cr2 {color: #640E4B !important;}
+.cr3 {color: #C8166F !important;}
+.cr4 {color: #FE1574 !important;}
+.cr5 {color: #FF5B6C !important;}
+
+
+
+.pixelart{
+image-rendering:pixelated;
+}
+
+/* parts of following are for animation of cat sprite, learnt from Drew Conley's yt vid on the subject*/
+/*cat sprite sheet not made by me, but it is free use*/
+.character
+{
+overflow:hidden;
+
+
+width:calc(var(--pixel-size)*var(--sprite-size));
+height:calc(var(--pixel-size)*var(--sprite-size));
+position: absolute;
+bottom:0;
+
+}
+
+/* we gonna use steps, basically takes an animation and does it in increments*/
+
+.characterSS{
+animation: animate 1s steps(8) infinite;
+width:calc(var(--pixel-size)*var(--sprite-size) *8);
+height:calc(var(--pixel-size)*var(--sprite-size) *16);
+position: absolute;
+left:0px;
+top: calc(var(--sprite-size)*var(--pixel-size) * (-1) * var(--state));
+
+}
+
+@keyframes animate{
+from  {
+    transform:translate3d(0px,0,0)
+}
+to   {
+    transform:translate3d(-100%,0,0)  /*to right by 100% of image x dimension*/
+}
+
+}
+
+
+
+
+/* top: calc(var(--sprite-size)*var(--pixel-size) * (-1)); */
+
+
+
+
+.border
+{
+    color:var(--r1);
+}
+
+.navbar
+{
+    background-color: var(--r1);
+}
+
+.nav-link
+{
+    color: var(--r3) !important;
+}
+
+.dropdown-item
+{
+    color: var(--r3) !important;
+}
+
+.navbar-nav > li > .dropdown-menu { background-color: var(--r1); }
+
+.dropdown-item:hover
+{ background-color: var(--r2) !important; }
+
+body
+{
+    height:100%;
+}
+
+
+main 
+{
+    background-color: #640E4B;
+    background-image:  var( --bgurl );
+    background-size: 400px;
+    background-position: 1000px 1000px;
+    background-repeat: repeat;   
+    min-height: calc(100vh - 40px);
+    height:100%;
+    background-attachment: fixed;   /* CONFIG */
+}
+/*styling for the tessalation of the background tile*/
+/*tile art was made by me*/
+
+
+
+main>div
+{
+    color:var(--r3);
+}
+
+footer
+{
+    background-color: var(--r1);
+    color:var(--r3);
+    padding:10px
+}
+
+
+.textwrap
+{
+    text-wrap: wrap !important;
+}
+
+
+
+.widebox
+{
+
+
+    padding: 0.75rem;
+    vertical-align: middle !important;
+    align-items: center!important;
+
+}
+
+.bold
+{
+    font-weight: bold;
+}
+
+.wlimited
+{
+    max-width:1000px !important;
+}
+
+#logbox{
+    background: var(--r1);
+}
+
+.article
+{
+    padding: 0.8rem;
+}
+
+.articleicon
+{
+
+    max-width:70px;
+    max-height:70px;
+
+}
+
+.articletitle
+{
+    margin-right: auto;
+    margin-left: 0;
+}
+
+.articleicon
+{
+    margin-right: auto;
+    margin-left: 0;
+}
+
+a
+{
+    color: var(--r3) !important;
+    text-decoration: none !important;
+}
+
+a:hover
+{
+    text-decoration: underline !important;
+}
+
+
+
+.smallimage
+{
+    max-width:200px;
+    max-height:200px;
+}
+
+.x-align-mid
+{
+    width : 100%;
+    margin:auto;
+}
+
+.centering-grid
+{
+    
+    display: grid;
+    place-content: center;
+
+}
