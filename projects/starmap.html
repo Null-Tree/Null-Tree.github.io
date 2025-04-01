@@ -9,7 +9,7 @@
         
 
          <title>
-    Emled
+    Starmap
 </title>
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1, width=device-width">
@@ -26,8 +26,8 @@
         <link rel="icon" href="/static/catico.jpg">
 
         
-  <link href="/static/sys/emled.css" rel="stylesheet">
-  <script src="/static/sys/catsys.js"></script>
+  <link href="/static/sys/varients/starmap/emled.css" rel="stylesheet">
+  <script src="/static/sys/varients/starmap/catsys.js"></script>
         
 
 
@@ -85,32 +85,54 @@
         <div id = "main">
             <main id="bg"> <!--  class="bgr4 textwrap container py-5 text-center"-->
                 
-    <div class = "textwrap container py-5 text-center wlimited">
-        <div class = "bold bgr1 cr3 widebox border border-dark">
-            About Me
-        </div>
-        <div class = "bgr1 cr3 widebox border border-dark">
-            <p>
-                I'm Kim. Currently a student in Australia.
-            </p>
-            <p>
-                Currently intrested in: coding, game design, espresso making, mocktail mixing, pixel art, skiing, science, anything cool
-            </p>
-            <p>
-                Skills: C, Python, HTML/CSS/JS, simple graphical design
-            </p>
-            <p>
-                Doing CS as a hobby, feel free to invite me for gamejams or coding projects!
-            </p>
-            <p>
-                This website page just got on its feet, don't have anything special to put on here probably for a while.
-                Will probably put up some of my coding projects later.
-                Please let me know if there's any glitches or misspellings on this website, god knows I make too many of the latter.
-            </p>
-            <p>
-                I do not play too many games but here are some I enjoyed: Elden Ring, One Shot(yes this background is based on this game!), Portal, 5D Chess, Black Myth Wukong, Wild Rift (Arcane was too good)
 
-            </p>
+
+    <div class = "textwrap container py-5 wlimited">
+        <div class = "bold bgr1 cr3 m-3 article border border-dark">
+            Astral Starmap
+        </div>
+
+        <div class = "bgr1 cr3 m-3 article border border-dark">
+            Created as a part of 
+            <a href="https://astral.institute/">ASTRAL.INSTITUTE</a>
+            2025 at Swimbourne.
+            <br><br>
+            The starmap project collected the data of 600k+ stars from the 
+            <a href="https://www.cosmos.esa.int/web/gaia-users">GAIA</a> 
+            and
+            <a href="https://simbad.u-strasbg.fr/simbad/">SIMBAD</a> 
+            astronomy databases.
+
+            <br><br>
+            Stars were filtered, visible stars (stars with apparent magnitudes of less than 8), were compiled.
+            <br>
+            More than 16k stars remained.
+            This catalouge was then amended with more than 100 very bright stars from outside the extracted GAIA catalouge.
+            <br>
+            (the GAIA satelite is very sensitive, it does not observe known bright stars to preserve onboard instruments)
+            <br>
+            <br>
+            Using the Python PIL module, these stars were drawn on a large png canvas.
+            <br><br>
+            Constellation data came from the IAU (International Astronomical Union).
+            <br>
+            This currently uses conventional Western skylore, with current work to include the Boorong constalations of Australian Indigenous skylore. 
+            <br>
+            The specific JSON file may be found 
+            <a href="https://github.com/doinab/constellation-lines/blob/main/json/IAU.json">HERE</a>.
+            <br>
+            Using PIL, these were also drawn on the png canvas.
+            <br>
+            Special code was used to ensure seamless connection across borders of the image file.
+            <br><br>
+            The specific renderer has modifyable configuration that may be adjusted.<br>
+            Currently it is configured to create a high quality, 2 by 1 image, perfect to be used as a skybox within the Unity engine, like we did for the Planet Hunter project.
+            They may be found within my repositry 
+            <a href="https://github.com/Null-Tree/Null-Tree.github.io/tree/main/static/projectarticleassets/starmap">HERE</a>
+            
+            <br><br>
+            Note: skymap is aligned with poles of the earth (uses RA DEC), it is not aligned with the ecliptic plane
+
 
 
         </div>
