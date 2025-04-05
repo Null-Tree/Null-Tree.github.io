@@ -18,7 +18,7 @@
                 var held_directions = [];
                 /*put own implementation of held dir later*/
                 var direction = ""
-                var dir=""
+                var dir="R"
                 var touchx=0;
                 var touching=false;
 

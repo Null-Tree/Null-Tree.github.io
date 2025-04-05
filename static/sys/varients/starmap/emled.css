@@ -4,18 +4,19 @@
 } */
 
 :root {
-    --r1: #290C31;
-    --r2: #640E4B;
-    --r3: #C8166F;
-    --r4: #FE1574;
-    --r5: #FF5B6C;
+    --r1: #121731;
+    --r2: #0a205a;
+    --r3: #7588e6;
+    --r2d5: #5d74e8;
+    --r4: #9da5bc;
+    --r5: #ffffff;
     --pixel-size: 5; /* scales art */
     --sprite-size: 32px;
 
     --state:1;
     --bgspeed:1;
 
-    --bgurl:url("/static/projectarticleassets/starmap/v1WesternMID.png");
+    --bgurl:url("/static/projectarticleassets/starmap/v1WesternLOWveryDIM.png");
 
     /*--bgurl:url("https://cdn.discordapp.com/attachments/845923711102222337/1323645295015493671/glowraw.png?ex=6775443e&is=6773f2be&hm=f19babd969352b9d842221e6edfc61412cae86d0283046fd6e3e02bb305e0869&")*/
 }
@@ -23,18 +24,23 @@
 
 
 
-.bgr1 {background-color: #290C31 !important;}
-.bgr2 {background-color: #640E4B !important;}
-.bgr3 {background-color: #C8166F !important;}
-.bgr4 {background-color: #FE1574 !important;}
-.bgr5 {background-color: #FF5B6C !important;}
+/* #9da5bc */
 
 
-.cr1 {color: #290C31 !important;}
-.cr2 {color: #640E4B !important;}
-.cr3 {color: #C8166F !important;}
-.cr4 {color: #FE1574 !important;}
-.cr5 {color: #FF5B6C !important;}
+
+.bgr1 {background-color: var(--r1) !important;}
+.bgr2 {background-color: var(--r2) !important;}
+.bgr3 {background-color: var(--r3) !important;}
+.bgr4 {background-color: var(--r4) !important;}
+.bgr5 {background-color: var(--r5) !important;}
+
+
+.cr1 {color: var(--r1) !important;}
+.cr2 {color: var(--r2) !important;}
+.cr3 {color: var(--r3) !important;}
+.cr4 {color: var(--r4) !important;}
+.cr5 {color: var(--r5) !important;}
+
 
 
 
@@ -116,20 +122,18 @@ body
     height:100%;
 }
 
-
 main 
 {
-    background-color: #640E4B;
+    background-color: var(--r1);
     background-image:  var( --bgurl );
-    background-position: center; 
-    background-repeat: repeat;
+    background-attachment: fixed;   /* CONFIG */
+
     background-size: cover;
+    background-repeat: no-repeat;   
     min-height: calc(100vh - 40px);
     height:100%;
-    background-attachment: fixed;   /* CONFIG */
+    
 }
-/*styling for the tessalation of the background tile*/
-/*tile art was made by me*/
 
 
 
@@ -204,7 +208,7 @@ footer
 
 a
 {
-    color: var(--r3) !important;
+    color: var(--r2d5) !important;
     text-decoration: none !important;
 }
 

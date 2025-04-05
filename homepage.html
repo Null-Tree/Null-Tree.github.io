@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        
+
+        <!-- <link href="https://null-tree.github.io/static/sys/emled.css" rel="stylesheet"> -->
+        
+
+         <title>
+    Homepage and art
+</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <!-- scale to mobile-->
+
+
+        <!--get bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <!-- src="static/catcontrol.js" -->
+
+
+
+        <link rel="icon" href="/static/catico.jpg">
+
+        
+  <link href="/static/sys/emled.css" rel="stylesheet">
+  <script src="/static/sys/catsys.js"></script>
+        
+
+
+        
+
+
+    </head>
+
+    <body>
+
+        <nav class=" bgr1 navbar navbar-expand-md border border-dark">
+            <div class="container-fluid">
+                <div class = "navbar-brand"><a href="/"><img src="/static/catico.jpg" alt="Catito" width="50" height="50" /></a></div>
+
+
+
+
+                <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar">
+                        <ul class="r3 navbar-nav me-auto mt-2">
+                            <li class="r3 nav-item "><a class=" nav-link" href="/">Home</a></li>
+                            <li class="nav-item"><a class=" nav-link" href="/aboutme">About Me</a></li>
+                            <!-- <li class="nav-item"><a class=" nav-link" href="/blog">Blog</a></li>
+                            <li class="nav-item"><a class=" nav-link" href="/collage">Collage</a></li> -->
+
+                            <li class="nav-item"><a class=" nav-link" href="/contact">Socials</a></li>
+                            <li class="nav-item"><a class=" nav-link" href="/vce">VCE</a></li>
+
+
+
+                            <li class="nav-item dropdown">
+                                <a class=" nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Projects
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class=" dropdown-item" href="/projects">Project List</a></li>
+                                    <li><hr class=" dropdown-divider"></li>
+
+                                    <!-- <li><a class=" dropdown-item" href="#">others</a></li> -->
+                                </ul>
+                            </li>
+
+                        </ul>
+                        <ul class="navbar-nav ms-auto mt-2">
+                            <li class="nav-item"><a class="nav-link" href="/">side</a></li>
+                        </ul>
+
+                </div>
+            </div>
+        </nav>
+
+
+        <div id = "main">
+            <main id="bg"> <!--  class="bgr4 textwrap container py-5 text-center"-->
+                
+    <div class = "textwrap container py-5 wlimited">
+        <div class = "bold bgr1 cr3 m-3 article border border-dark">
+            <h1>Homepage</h1>
+        </div>
+
+        <div class = "bgr1 cr3 m-3 article border border-dark">
+            <h3>Assets</h3>
+            If you are just here for the assets:
+            <a href="https://github.com/Null-Tree/Null-Tree.github.io/tree/main/static">Background varients</a>
+            <br><br>
+            The specific cat sprite sheet was not made by me. It can be found free for use on itch.io.<br>
+            Link to artist's page:
+            <br><a href="https://pop-shop-packs.itch.io/cats-pixel-asset-pack">Cats || Pixel Asset Pack by Pop Shop Packs</a>
+        </div>
+
+
+
+        <div class = "bgr1 cr3 m-3 article border border-dark">
+
+            There are three main sections to this home page, the pixel art background, cat sprite, and html formatting. <br>
+            There will be sections for each.<br>
+            This is not a full guide, but provides useful guides and tips. Note that I may or may not be doing things the most efficent way possible, this is just the way I did it.
+
+        </div>
+
+
+        <div class = "bgr1 cr3 m-3 article border border-dark">
+            <h3>Pixel art background</h3>
+            The resources I used are as follows: <br>
+            Pixel art editor: <a href="https://www.pixilart.com/draw#"> Pixilart</a> <br>
+            Adobe Photoshop
+            <br><br>
+            As this is a tessalating pixel art, it is important to give yourself guidelines to see where you need
+            parts of the art to join up<br>
+            <img class= "smallimage" src="/static/projectarticleassets/homepage/guidlines.png">
+            <br>
+            Once you have these guidelines up, you can start making simple pixel arts of buildings and layering them.
+            Keeping in mind to match the buildings with the guidelines if they ever intersect with the boundaries of the page.
+            <br>
+            Once you have your buildings, you can create the lit up windows.<br>
+            Make sure to create these lights on a different layer. This will save alot of time later on.
+            <br>
+            Things to keep in mind with lights:<br>
+            <ul>
+                <li>Try to keep them evenly distributed, so that density patterns dont form when the art is tessalated.</li>
+                <li>Avoid putting in too many either, as if theres two many, when we add glow effects later
+                    they may end up forming patterns and lines when the glow effects overlap. As humans are really sensitive to patterns,
+                     it will become really clear if the image is repeated.
+                </li>
+            </ul>
+            If these were not considered, the image may end up looking like this instead, where the repeating pattern is very clear:
+            <img style="max-width:800px;max-height:200px;" src="/static/projectarticleassets/homepage/eg.png">
+
+            <br>
+            Now you have finished making the lights, make sure to export the base layer and layer with lights as seperate files.
+            And open them on photoshop.
+            <br>
+            You will want to scale up these files, as otherwise the light effects will be pixelated.
+            If you dont want a higher definition glow effect, and prefer a more pixelated style, you may skip this.<br>
+            To scale up, go into image>image size, and adjust dimensions to your desire.<br>
+            For pixel art make sure to select "Nearest Neighbour (hard edges)" mode, which maintains the crisp edges. Otherwise your pixel art will end up blurry <br>
+            <img style="max-width:800px;max-height:200px;" src="/static/projectarticleassets/homepage/psscale.png">
+
+
+
+            <br>
+            <br>
+            Now create a new project in the same dimensions you scaled up to.
+            And move the base and light pictures onto this project in diffrent layers
+            <br>
+            There are some things to keep in mind with moving the light layer.<br>
+            Because the image file of the lights is mostly empty except for the lights themselves, you cannot do
+            Crtl-A then copy, because photoshop cannot handle empty borders, and will automatically crop your selection<br>
+            So aligning may become tricky.<br>
+            Personally I recommend putting placeholder pixels at a pair of opposite corners of the image, and then copying it across.
+            <br>
+            After both base layer and lights layer are on. You are ready to add the glow effects.
+            <br><br>
+            There are many ways to do this, but these are the two guides I followed:
+            <br>
+            <a href="https://www.youtube.com/watch?v=ENCMGabrOcY&t=62s&pp=ygUjaG93IHRvIGFkZCBnbG93IGVmZmVjdCBpbiBwaG90b3Nob3A%3D">Glow effect guide by Benny</a>
+            <a href="https://www.youtube.com/watch?v=3QQxtsZ8_zQ&pp=ygUjaG93IHRvIGFkZCBnbG93IGVmZmVjdCBpbiBwaG90b3Nob3A%3D">Glow guide by Spoon graphics</a>
+            <br>
+            Try avoid Crtl-A then copying layers to duplicate them, as it pastes the new layer in diffrent position. Right click layer and duplicate instead.
+            <br>
+            <br>
+            As you are trying to make a tessalating tile. having glow effects that do not line up may also be ploblemmatic.
+            This does not matter too much for the glow effect that uses gaussian blur, unless you have lights right up agaist the border.
+            For the glow effect using color lookup and a low flow brush, I recommend the below.
+            Split the art into two sections using guides set at quarters.
+            <br>
+            And apply the glow effects seperately.<br>
+            You would want to create two diffrent copies of: base and light layer, and the color look up layer.<br>
+            For the inner section, go ahead and apply the glow effects<br>
+            But prior to applying the same glow effects to the outer lights, you will want to 'transform' the image as below.
+            To make sure each light effect will line up even when tessalated.
+            You will want to translate each quadrant to its opposite quadrant. Eg Top Right -> Bottom left
+            Below are images before and after transformation. Square is there for reference.
+
+            <br>
+
+            <img style="max-width:400px;max-height:400px;" src="/static/projectarticleassets/homepage/sqrframe.png">
+            <img style="max-width:400px;max-height:400px;" src="/static/projectarticleassets/homepage/afterinvert.png">
+            <br>
+            Now when you add the glow effects for these lights, the glow effect will now line up across borders.
+            Once you add them you will want to do the transformation again this time to the color lookup layer, to revert it to line up with the original image.
+            <img style="max-width:400px;max-height:400px;" src="/static/glow.jpg">
+            <br>
+            If nothing has gone astray, your tessalating tile will have been completed.
+
+        </div>
+        <div class = "bgr1 cr3 m-3 article border border-dark">
+            <h3>Sprite animation</h3>
+            I did the sprite animation in js.<br>
+            Recommend the following guide:<br>
+            <a href="https://www.youtube.com/watch?v=ekI7vjkFrGA">Sprite sheet animation tutorial with HTML and CSS By Drew Conley</a>
+            <br>
+            The specific cat sprite sheet was not made by me. It can be found free for use on itch.io.<br>
+            Link to artist's page:
+            <br><a href="https://pop-shop-packs.itch.io/cats-pixel-asset-pack">Cats || Pixel Asset Pack by Pop Shop Packs</a>
+        </div>
+        <div class = "bgr1 cr3 m-3 article border border-dark">
+            <h3>Html and page hosting</h3>
+            This is the more boring technical stuff.
+            There are many free hosting optinons for static pages.
+            I went with github pages, which was free for anyone with an education account, which only requires one to have
+            a school email and id.
+
+            I created this project using the flask frame work.
+            And used the free
+            <a href="https://github.com/Frozen-Flask/Frozen-Flask">Frozen-Flask project</a>
+            to convert the dynamic frame work to static.
+
+            For formatting I recommend bootstrap.
+        </div>
+    </div>
+
+
+
+
+                    
+
+            </main>
+        </div>
+
+        <!-- border border-light -->
+        <div id = "cat" class="character " style="position:fixed; bottom:-30px;">
+
+            <img class = "characterSS runR pixelart " src = "/static/greysprite.png" alt = "catsprite">
+            <!--config-->
+
+        </div>
+
+        <footer>
+            Use A/D or arrow keys to move cat. Or touchscreen.
+        </footer>
+
+        
+    </body>
+
+
+</html>

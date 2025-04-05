@@ -18,12 +18,10 @@
                 var held_directions = [];
                 /*put own implementation of held dir later*/
                 var direction = ""
-                var dir=""
+                var dir="R"
                 var touchx=0;
                 var touching=false;
 
-                var bgx=1000;
-                var bgy=1000;
                 var event;
 
 
@@ -53,7 +51,7 @@
 
                     character.style.transform = `translate3d(${x*pixelSize}px, ${y*pixelSize}px,0)`;
 
-                    main.style.backgroundPosition=`${bgx}px ${bgy}px`;
+                    // main.style.backgroundPosition=`${bgx}px ${bgy}px`;
 
 
 
