@@ -118,13 +118,34 @@
 
             <br><br>
             Image files are linked below:
-<!--             <ul>
-                <li><a href="/static/projectarticleassets/starmap/v1WesternHIGH.png">16k unlabeled</a></li>
-                <li><a href="/static/projectarticleassets/starmap/v1WesternHIGHLabeled.png">16k labeled</a></li>
-                <li><a href="/static/projectarticleassets/starmap/v1WesternMID.png">8k unlabeled</a></li>
-                <li><a href="/static/projectarticleassets/starmap/v1WesternMIDLabeled.png">8k labeled</a></li>
-            </ul> -->
-            <a href="https://github.com/Null-Tree/Null-Tree.github.io/tree/main/static/projectarticleassets">Folder link</a>
+            Western:<br>
+            <ul>
+                
+                <li>
+                    16k: 
+                    <a href="/static/projectarticleassets/starmap/western/16k_labeled.png">labeled</a>,
+                    <a href="/static/projectarticleassets/starmap/western/16k_lined.png">lined</a>,
+                    <a href="/static/projectarticleassets/starmap/western/16k_plain.png">plain</a>
+                </li>
+                <li>
+                    8k: 
+                    <a href="/static/projectarticleassets/starmap/western/8k_labeled.png">labeled</a>,
+                    <a href="/static/projectarticleassets/starmap/western/8k_lined.png">lined</a>,
+                    <a href="/static/projectarticleassets/starmap/western/8k_plain.png">plain</a>
+                </li>
+                <li>
+                    4k: 
+                    <a href="/static/projectarticleassets/starmap/western/4k_lined.png">lined</a>,
+                    <a href="/static/projectarticleassets/starmap/western/4k_plain.png">plain</a>
+                </li>
+            </ul>
+            <br>
+            Boorong exports tba
+            <br>
+            <a href="https://github.com/Null-Tree/Null-Tree.github.io/tree/main/static/projectarticleassets/starmap">Export files link</a>
+            <br><br>
+
+            Program files: <a href="https://github.com/Null-Tree/AstralStarMap/"> Github repositry</a>
 
         </div>
 
@@ -135,7 +156,7 @@
             2025 at Swimbourne.
             <!-- link is blocked on school wifi LMAO -->
             <br><br>
-            The starmap project collected the data of 600k+ stars from the 
+            The starmap project collected the data of 60k+ stars from the 
             <a href="https://www.cosmos.esa.int/web/gaia-users">GAIA</a> 
             and
             <a href="https://simbad.u-strasbg.fr/simbad/">SIMBAD</a> 
@@ -144,28 +165,29 @@
             <br><br>
             Stars were filtered, visible stars (stars with apparent magnitudes of less than 8), were compiled.
             <br>
-            More than 16k stars remained.
             This catalouge was then amended with more than 100 very bright stars from outside the extracted GAIA catalouge.
             <br>
             (the GAIA satelite is very sensitive, it does not observe known bright stars to preserve onboard instruments)
             <br>
             <br>
-            Using the Python PIL module, these stars were drawn on a large png canvas.
+            Using the Python PIL module and a premade star template, these stars were drawn on a large png canvas.
+            <br>
+            For each star taking the template, resizing and tinting. Each star comprised of a inner white template and an outer tinted template colored with black body color corrosponding to the star's tempature. 
+
             <br><br>
             Constellation data came from the IAU (International Astronomical Union).
             <br>
-            This currently uses conventional Western skylore, with current work to include the Boorong constalations of Australian Indigenous skylore of the Boorong clan. 
+            This currently uses conventional Western skylore, with support for the constalations of Australian Indigenous skylore of the Boorong clan. 
             <br>
-            The specific JSON file may be found 
+            A copy of the JSON file for western constalations may be found  
             <a href="https://github.com/doinab/constellation-lines/blob/main/json/IAU.json">HERE</a>.
             <br>
-            Using PIL, these were also drawn on the png canvas.
+            Constallation data for Boorong skylore may be found within files of Stellarium.
             <br>
-            Special code was used to ensure seamless connection across borders of the image file.
-            <br><br>
-            The specific renderer has modifyable configuration that may be adjusted.<br>
-            Currently it is configured to create a high quality, 2 by 1 image, perfect to be used as a skybox within the Unity engine, like we did for the Planet Hunter project.
-            
+            <br>
+            The specific renderer has modifyable configuration that may be adjusted.
+            <br>
+            Star template image itself may also be swapped out.
             <br>
             
             <br><br>
